@@ -168,7 +168,7 @@ body{
         <div class="card-front">
             <div class="moon"></div>
             <div class="front-text">THE MOON</div>
-            <div class="sub">滑动查看</div>
+            <div class="sub">点击查看</div>
         </div>
 
         <!-- 背面 -->
@@ -190,39 +190,34 @@ body{
 
 <script>
 
-/* ================= 点击翻转 ================= */
+/* ================= 点击翻转（APP式交互） ================= */
 
 const card = document.getElementById("card");
-const inner = document.getElementById("inner");
 
-card.addEventListener("click",()=>{
-    card.classList.toggle("flip");
+/* 点击翻转 */
+card.addEventListener("click", () => {
+
+    /* 按压反馈 */
+    card.style.transform = "scale(0.96)";
+
+    setTimeout(()=>{
+        card.style.transform = "";
+        card.classList.toggle("flip");
+    },120);
+
 });
 
-/* ================= 3D 跟随鼠标（金融APP质感核心） ================= */
 
-card.addEventListener("mousemove",(e)=>{
+/* ================= 手机触摸优化 ================= */
 
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width/2;
-    const centerY = rect.height/2;
-
-    const rotateX = -(y-centerY)/18;
-    const rotateY = (x-centerX)/18;
-
-    inner.style.transform =
-        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
-
-card.addEventListener("mouseleave",()=>{
-    inner.style.transform="";
+/* 防止微信滑动误触 */
+card.addEventListener("touchstart", function(e){
+    e.stopPropagation();
 });
 
 </script>
 
 </body>
 </html>
+
 
