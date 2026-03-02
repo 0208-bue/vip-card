@@ -7,7 +7,7 @@
 
 <style>
 
-/* ================= 背景 ================= */
+/* ================= 背景（暗红金融氛围） ================= */
 
 body{
     margin:0;
@@ -19,8 +19,8 @@ body{
     overflow:hidden;
 
     background:
-        radial-gradient(circle at 50% 20%, #1e293b 0%, transparent 60%),
-        linear-gradient(135deg,#020617,#000000);
+        radial-gradient(circle at 50% 20%, #3b0a0a 0%, transparent 60%),
+        linear-gradient(135deg,#120202,#000000);
 }
 
 /* ================= 卡片 ================= */
@@ -55,18 +55,18 @@ body{
     overflow:hidden;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,0.6);
+        0 20px 50px rgba(0,0,0,0.7);
 }
 
 /* ================= 正面 ================= */
 
 .card-front{
-    background:linear-gradient(160deg,#0b1220,#020617);
+    background:linear-gradient(160deg,#2a0c0c,#0b0101);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    color:#fcd34d;
+    color:#ffd166;
 }
 
 /* 金色边框光效 */
@@ -86,14 +86,14 @@ body{
     -webkit-mask-composite:xor;
 }
 
-/* 月亮 */
+/* 月亮（金色徽章效果） */
 .moon{
     width:85px;
     height:85px;
     border-radius:50%;
     background:radial-gradient(circle,#fde68a,#f59e0b);
     margin-bottom:20px;
-    box-shadow:0 0 25px rgba(255,215,0,0.4);
+    box-shadow:0 0 30px rgba(255,200,0,0.45);
 }
 
 .front-text{
@@ -104,7 +104,7 @@ body{
 .sub{
     margin-top:12px;
     font-size:13px;
-    color:#94a3b8;
+    color:#e5c07b;
 }
 
 /* ================= 背面 ================= */
@@ -112,14 +112,14 @@ body{
 .card-back{
     transform:rotateY(180deg);
 
-    background:linear-gradient(145deg,#111827,#020617);
+    background:linear-gradient(145deg,#1a0404,#0b0101);
 
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.06);
     backdrop-filter:blur(12px);
 
     padding:22px;
     box-sizing:border-box;
-    color:#e2e8f0;
+    color:#f1f5f9;
 }
 
 .title{
@@ -132,7 +132,7 @@ body{
 .info{
     margin:9px 0;
     font-size:15px;
-    color:#cbd5e1;
+    color:#f3e8e8;
 }
 
 .tip{
@@ -142,7 +142,7 @@ body{
     left:0;
     text-align:center;
     font-size:12px;
-    color:#64748b;
+    color:#a78b8b;
 }
 
 /* ================= 悬浮呼吸动画 ================= */
@@ -162,7 +162,7 @@ body{
 <body>
 
 <div class="card" id="card">
-    <div class="card-inner" id="inner">
+    <div class="card-inner">
 
         <!-- 正面 -->
         <div class="card-front">
@@ -190,11 +190,10 @@ body{
 
 <script>
 
-/* ================= 点击翻转（APP式交互） ================= */
+/* ================= 点击翻转 ================= */
 
 const card = document.getElementById("card");
 
-/* 点击翻转 */
 card.addEventListener("click", () => {
 
     /* 按压反馈 */
@@ -204,13 +203,9 @@ card.addEventListener("click", () => {
         card.style.transform = "";
         card.classList.toggle("flip");
     },120);
-
 });
 
-
-/* ================= 手机触摸优化 ================= */
-
-/* 防止微信滑动误触 */
+/* 微信触摸优化 */
 card.addEventListener("touchstart", function(e){
     e.stopPropagation();
 });
@@ -219,6 +214,7 @@ card.addEventListener("touchstart", function(e){
 
 </body>
 </html>
+
 
 
 
